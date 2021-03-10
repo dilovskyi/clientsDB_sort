@@ -1,0 +1,16 @@
+@mixin mainBtn {
+  color: $deepViolet;
+  font-family: "Averta";
+  font-weight: 600;
+  font-size: 15px;
+  font-weight: 600;
+  background: none;
+  box-sizing: border-box;
+  border: 1px solid $deepViolet;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+  outline: none;
+}

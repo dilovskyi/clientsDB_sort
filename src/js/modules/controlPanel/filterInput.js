@@ -1,14 +1,36 @@
 const filterInput = data => {
   const sortingInput = document.querySelector("#sort-input");
+  const label = document.querySelectorAll(".filterInput__label");
   const activClass = "is-checked";
   let currentLang = null;
 
+  const changeLabel = (phrase, lang, color) => {
+    label.forEach(item => {
+      if (item.getAttribute("data-lang") === lang) {
+        item.textContent = `${phrase}`;
+        item.style.color = color;
+      }
+    });
+  };
+
   const sortByInput = (arr, lang, target) => {
     const value = target.value.toLowerCase();
-    if (currentLang === "ru") {
-      target.value = target.value.replace(/[A-z+]|(\d)/g, "");
-    } else if (currentLang === "en") {
-      target.value = target.value.replace(/[А-я+]|(\d)/g, "");
+
+    // переписать лучше
+    if (lang === "ru") {
+      target.value = value.replace(/[A-z+]|(\d)/g, "");
+      changeLabel("Имя", lang, "black");
+
+      if (/[A-z+]|(\d)/.test(value)) {
+        changeLabel("Измените язык ввода", lang, "red");
+      }
+    } else if (lang === "en") {
+      target.value = value.replace(/[А-я+]|(\d)/g, "");
+      changeLabel("Name", lang, "black");
+
+      if (/[А-я+]|(\d)/.test(value)) {
+        changeLabel("Change language", lang, "red");
+      }
     }
 
     // ищем фамилию-имя или имя-фамилию
@@ -20,7 +42,7 @@ const filterInput = data => {
       const currentUser = document.querySelectorAll(`[data-sort-id="${i}"]`);
 
       if (regexp.test(UserName) || regexp.test(UserNameReverse)) {
-        currentUser.forEach(item => (item.style.display = "block"));
+        currentUser.forEach(item => (item.style.display = "grid"));
       } else {
         currentUser.forEach(item => (item.style.display = "none"));
       }
@@ -37,8 +59,6 @@ const filterInput = data => {
         }
       });
     })();
-    console.log(e.target.value);
-
     sortByInput(data, currentLang, e.target);
   });
 

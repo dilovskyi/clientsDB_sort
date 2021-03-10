@@ -1,12 +1,12 @@
-@import "./base/variables";
-
-@import "./modules/showLang.scss";
-
-@import "./modules/filterInput.scss";
+@import "./base/variables.scss";
+@import "./base/mixins.scss";
 
 @import "./modules/controlPanel.scss";
 @import "./modules/tableSection.scss";
 @import "./modules/previewSection.scss";
+
+@import "./modules/filterInput.scss";
+@import "./modules/showLanguage.scss";
 
 * {
   margin: 0;

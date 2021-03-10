@@ -4759,9 +4759,9 @@ document.addEventListener("DOMContentLoaded", function () {
     Object(_modules_controlPanel_viewSection__WEBPACK_IMPORTED_MODULE_4__["default"])();
     return data;
   }).then(function (data) {
+    Object(_modules_controlPanel_filterInput__WEBPACK_IMPORTED_MODULE_6__["default"])(data);
     Object(_modules_controlPanel_sortSection__WEBPACK_IMPORTED_MODULE_5__["sortingHandlers"])(data);
     Object(_modules_showLanguage__WEBPACK_IMPORTED_MODULE_3__["showLanguageHandler"])(data);
-    Object(_modules_controlPanel_filterInput__WEBPACK_IMPORTED_MODULE_6__["default"])(data);
   });
 });
 
@@ -4809,16 +4809,36 @@ __webpack_require__.r(__webpack_exports__);
 
 var filterInput = function filterInput(data) {
   var sortingInput = document.querySelector("#sort-input");
+  var label = document.querySelectorAll(".filterInput__label");
   var activClass = "is-checked";
   var currentLang = null;
 
-  var sortByInput = function sortByInput(arr, lang, target) {
-    var value = target.value.toLowerCase();
+  var changeLabel = function changeLabel(phrase, lang, color) {
+    label.forEach(function (item) {
+      if (item.getAttribute("data-lang") === lang) {
+        item.textContent = "".concat(phrase);
+        item.style.color = color;
+      }
+    });
+  };
 
-    if (currentLang === "ru") {
-      target.value = target.value.replace(/[A-z+]|(\d)/g, "");
-    } else if (currentLang === "en") {
-      target.value = target.value.replace(/[А-я+]|(\d)/g, "");
+  var sortByInput = function sortByInput(arr, lang, target) {
+    var value = target.value.toLowerCase(); // переписать лучше
+
+    if (lang === "ru") {
+      target.value = value.replace(/[A-z+]|(\d)/g, "");
+      changeLabel("Имя", lang, "black");
+
+      if (/[A-z+]|(\d)/.test(value)) {
+        changeLabel("Измените язык ввода", lang, "red");
+      }
+    } else if (lang === "en") {
+      target.value = value.replace(/[А-я+]|(\d)/g, "");
+      changeLabel("Name", lang, "black");
+
+      if (/[А-я+]|(\d)/.test(value)) {
+        changeLabel("Change language", lang, "red");
+      }
     } // ищем фамилию-имя или имя-фамилию
 
 
@@ -4830,7 +4850,7 @@ var filterInput = function filterInput(data) {
 
       if (regexp.test(UserName) || regexp.test(UserNameReverse)) {
         currentUser.forEach(function (item) {
-          return item.style.display = "block";
+          return item.style.display = "grid";
         });
       } else {
         currentUser.forEach(function (item) {
@@ -4851,7 +4871,6 @@ var filterInput = function filterInput(data) {
       });
     })();
 
-    console.log(e.target.value);
     sortByInput(data, currentLang, e.target);
   });
   sortingInput.addEventListener("blur", function (e) {

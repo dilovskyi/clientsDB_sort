@@ -14,7 +14,6 @@
     &:focus ~ label {
       color: $textColor;
       top: -5px;
-      border-bottom: 1px solid $deepViolet;
     }
     &:hover {
       border-bottom: 1px solid $deepViolet;
@@ -28,6 +27,14 @@
     left: 5px;
     top: 17px;
     transform: translateY(-50%);
-    transition: 0.2s ease all;
+    transition: all 0.2s ease;
+    &_notValid {
+      color: $red;
+      display: none;
+    }
   }
+}
+
+.notValid {
+  border-bottom: 1px solid $red;
 }

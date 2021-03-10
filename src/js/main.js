@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return data;
     })
     .then(data => {
+      filterInput(data);
       sortingHandlers(data);
       showLanguageHandler(data);
-      filterInput(data);
     });
 });
