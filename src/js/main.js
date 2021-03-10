@@ -7,6 +7,7 @@ import { showLanguageHandler } from "./modules/showLanguage";
 import viewHandlers from "./modules/controlPanel/viewSection";
 import { sortingHandlers } from "./modules/controlPanel/sortSection";
 import filterInput from "./modules/controlPanel/filterInput";
+import preloader from "./modules/preloader";
 
 document.addEventListener("DOMContentLoaded", () => {
   getData("../../assets/data.json")
@@ -23,5 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
       filterInput(data);
       sortingHandlers(data);
       showLanguageHandler(data);
+      preloader();
     });
 });

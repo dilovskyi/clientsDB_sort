@@ -4743,6 +4743,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_controlPanel_viewSection__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/controlPanel/viewSection */ "./src/js/modules/controlPanel/viewSection.js");
 /* harmony import */ var _modules_controlPanel_sortSection__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/controlPanel/sortSection */ "./src/js/modules/controlPanel/sortSection.js");
 /* harmony import */ var _modules_controlPanel_filterInput__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/controlPanel/filterInput */ "./src/js/modules/controlPanel/filterInput.js");
+/* harmony import */ var _modules_preloader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/preloader */ "./src/js/modules/preloader.js");
+
 
 
 
@@ -4762,6 +4764,7 @@ document.addEventListener("DOMContentLoaded", function () {
     Object(_modules_controlPanel_filterInput__WEBPACK_IMPORTED_MODULE_6__["default"])(data);
     Object(_modules_controlPanel_sortSection__WEBPACK_IMPORTED_MODULE_5__["sortingHandlers"])(data);
     Object(_modules_showLanguage__WEBPACK_IMPORTED_MODULE_3__["showLanguageHandler"])(data);
+    Object(_modules_preloader__WEBPACK_IMPORTED_MODULE_7__["default"])();
   });
 });
 
@@ -5007,6 +5010,15 @@ var sortingHandlers = function sortingHandlers(data) {
     checkProp(e);
     sortByProp(data, sortProp, sortType);
   });
+
+  var renderTransotion = function renderTransotion() {
+    var table = window.getComputedStyle(document.querySelector("#table"));
+    var preview = document.querySelector("#preview");
+
+    if (table.Compute) {}
+  };
+
+  renderTransotion();
 };
 
 
@@ -5064,6 +5076,31 @@ var viewHandlers = function viewHandlers() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (viewHandlers);
+
+/***/ }),
+
+/***/ "./src/js/modules/preloader.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/preloader.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var preloader = function preloader() {
+  document.body.classList.add("loaded");
+
+  window.onload = function () {
+    document.body.classList.add("loaded_hiding");
+    window.setTimeout(function () {
+      document.body.classList.add("loaded");
+      document.body.classList.remove("loaded_hiding");
+    }, 1500);
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (preloader);
 
 /***/ }),
 

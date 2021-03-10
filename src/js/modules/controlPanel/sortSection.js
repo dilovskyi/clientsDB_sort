@@ -97,5 +97,13 @@ const sortingHandlers = data => {
     checkProp(e);
     sortByProp(data, sortProp, sortType);
   });
+
+  const renderTransotion = () => {
+    const table = window.getComputedStyle(document.querySelector("#table"));
+    const preview = document.querySelector("#preview");
+    if (table.Compute) {
+    }
+  };
+  renderTransotion();
 };
 export { sortingHandlers, sortByProp };
