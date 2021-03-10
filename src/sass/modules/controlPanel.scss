@@ -1,0 +1,67 @@
+.controlPanel {
+  font-family: "Averta";
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px 40px;
+  border: 2px solid $border;
+  border-radius: 10px;
+  margin: 10px 0 20px;
+  &__title {
+    font-size: 34px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  &__sort {
+    width: 50%;
+  }
+  &__view {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+  }
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__button {
+    color: $deepViolet;
+    font-family: "Averta";
+    font-weight: 600;
+    font-size: 15px;
+    font-weight: 600;
+    width: 30%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background: none;
+    box-sizing: border-box;
+    border: 1px solid $deepViolet;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 150ms ease-in-out;
+    outline: none;
+    &:hover {
+      box-shadow: inset 0px 0px 0px 1px $deepViolet;
+      transform: scale(1.1);
+      transition: all 0.5s;
+      &:after {
+        width: 110%;
+      }
+    }
+    &_wide {
+      width: 45%;
+    }
+  }
+}
+
+.is-checked {
+  background-color: $cheked;
+  color: #ffff;
+  outline: none;
+  border: 1px solid $skyBlue;
+  transition: transform 0.1s;
+}

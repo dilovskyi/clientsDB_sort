@@ -1,0 +1,33 @@
+.filterInput {
+  margin: 10px 0;
+  position: relative;
+  &__input {
+    background: none;
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $border;
+    text-align: center;
+    outline: none;
+    &:focus ~ label {
+      color: $textColor;
+      top: -5px;
+      border-bottom: 1px solid $deepViolet;
+    }
+    &:hover {
+      border-bottom: 1px solid $deepViolet;
+      transition: all 0.3s ease-in;
+    }
+  }
+  &__label {
+    color: $textColor;
+    font-size: 15px;
+    position: absolute;
+    left: 5px;
+    top: 17px;
+    transform: translateY(-50%);
+    transition: 0.2s ease all;
+  }
+}

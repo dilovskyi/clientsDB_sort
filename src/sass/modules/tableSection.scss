@@ -1,0 +1,58 @@
+.table {
+  & .users {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid $border;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    &__item {
+      margin: 0 auto;
+      display: grid;
+      grid-template: 1fr / 60px repeat(3, 1fr) 50px;
+      justify-items: center;
+      align-items: center;
+
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      border-bottom: 1px solid $border;
+      font-size: 16px;
+      &:hover {
+        font-size: 17px;
+        overflow: hidden;
+        background-color: $cheked;
+        color: #fff;
+        transform: scale(1.02);
+        transition: all 0.3s ease-in;
+      }
+    }
+    &__avatar {
+      width: 60px;
+      height: 60px;
+      background-color: black;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    &__name {
+      margin-left: 30px;
+      justify-self: start;
+    }
+    &__age {
+      width: 33.3%;
+      text-align: center;
+    }
+    &__phone {
+      width: 33.3%;
+      text-align: center;
+    }
+    &__important-star {
+      color: red;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

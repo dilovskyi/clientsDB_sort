@@ -1,0 +1,35 @@
+@import "./base/variables";
+
+@import "./modules/showLang.scss";
+
+@import "./modules/filterInput.scss";
+
+@import "./modules/controlPanel.scss";
+@import "./modules/tableSection.scss";
+@import "./modules/previewSection.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Averta";
+  color: #4b4b4b;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px 0;
+  box-sizing: border-box;
+}
+.class {
+  &-hidden {
+    display: none;
+  }
+  &-visible {
+    display: block;
+  }
+}

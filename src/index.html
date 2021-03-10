@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/font.css" />
+    <link rel="stylesheet" href="./assets/css/bundle.css" />
+    <title>Users base</title>
+  </head>
+  <body>
+    <header class="header">
+      <section class="showLang">
+        <div class="showLang__title">
+          <span data-lang="ru"> Изменить язык на: </span>
+          <span data-lang="en"> Change leanguage to: </span>
+        </div>
+        <button class="showLang__btn">
+          <span data-showLang="ru" data-hideLang="en" data-lang="en"
+            >Russian</span
+          >
+          <span data-showLang="en" data-hideLang="ru" data-lang="ru">
+            Английский
+          </span>
+        </button>
+      </section>
+      <div class="wrapper">
+        <section class="controlPanel">
+          <section class="controlPanel__sort">
+            <div class="controlPanel__title controlPanel__title-sort">
+              <span data-lang="ru">Сортировка</span>
+              <span data-lang="en">Sort</span>
+            </div>
+            <div
+              class="controlPanel__buttons sort-by-button-group button-group"
+            >
+              <button
+                id="sort-id"
+                class="controlPanel__button controlPanel__button-sort is-checked default-sorting"
+                data-sort-value="id"
+              >
+                <span data-lang="ru">ID</span>
+                <span data-lang="en">ID</span>
+              </button>
+              <button
+                id="sort-name"
+                class="controlPanel__button controlPanel__button-sort"
+                data-sort-value="name"
+              >
+                <span data-lang="ru">Имя</span
+                ><span data-lang="en"> Name </span>
+              </button>
+
+              <button
+                id="sort-age"
+                class="controlPanel__button controlPanel__button-sort"
+                data-sort-value="age"
+              >
+                <span data-lang="ru">Возраст</span>
+                <span data-lang="en">Age</span>
+              </button>
+              <button
+                id="sort-toHigher"
+                class="controlPanel__button controlPanel__button_wide controlPanel__button-sort"
+                data-sort-type="toHigher"
+              >
+                <span data-lang="ru">По возрастанию</span>
+                <span data-lang="en">Low to High</span>
+              </button>
+              <button
+                id="sort-toLower"
+                class="controlPanel__button controlPanel__button_wide controlPanel__button-sort is-checked default-sorting"
+                data-sort-type="toLower"
+              >
+                <span data-lang="ru">По убыванию</span>
+                <span data-lang="en">High to Low</span>
+              </button>
+            </div>
+          </section>
+          <section class="controlPanel__view">
+            <div class="controlPanel__title controlPanel__title-view">
+              <span data-lang="ru">Вид</span><span data-lang="en">View</span>
+            </div>
+            <div class="controlPanel__buttons controlPanel__buttons_view">
+              <button
+                class="controlPanel__button default-sorting is-checked controlPanel__button_tall controlPanel__button_wide"
+                data-view="table"
+              >
+                <span data-lang="ru"> Таблица </span
+                ><span data-lang="en">Table</span>
+              </button>
+              <button
+                class="controlPanel__button controlPanel__button_wide"
+                data-view="preview"
+              >
+                <span data-lang="ru"> Превью </span
+                ><span data-lang="en">Preview</span>
+              </button>
+            </div>
+            <div class="filterInput">
+              <input
+                class="filterInput__input"
+                type="text"
+                id="sort-input"
+                data-sort-value="input"
+                placeholder="&nbsp;"
+              />
+              <span class="filterInput__bar"></span>
+              <label
+                class="filterInput__label"
+                data-lang="en"
+                for="filterInput__input"
+                >Name</label
+              >
+              <label
+                class="filterInput__label"
+                data-lang="ru"
+                for="sort-input"
+                style="width: 0px"
+                >Имя</label
+              >
+            </div>
+          </section>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <section class="table class-visible" id="table">
+        <div class="wrapper">
+          <ul class="users"></ul>
+        </div>
+      </section>
+      <section class="preview grid class-hidden" id="preview">
+        <div class="wrapper"><ul class="user__list"></ul></div>
+      </section>
+    </main>
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>
