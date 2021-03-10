@@ -5070,7 +5070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var renderPreview = function renderPreview(data) {
-  var userList = document.querySelector("#preview .user__list");
+  var userList = document.querySelector("#preview .users");
   userList.innerHTML = "";
   data.map(function (_ref) {
     var id = _ref.id,
@@ -5086,14 +5086,14 @@ var renderPreview = function renderPreview(data) {
     // }
     var userListItem = document.createElement("div");
     var previewPlayer = document.createElement("div");
-    userListItem.classList.add("user");
+    userListItem.classList.add("users__item");
     userListItem.setAttribute("data-sort-id", id);
-    userListItem.innerHTML = "\n        <div class=\"user__avatar\">\n          <img src=\"../../assets/images/".concat(image, ".svg\" alt=\"").concat(image, "\" />\n        </div>\n        <div class=\"user__name name\" data-sort-item=\"name\">\n          <span data-lang=\"en\">").concat(name.en, "</span>\n          <span data-lang=\"ru\">").concat(name.ru, "</span>\n        </div>\n        <div class=\"user__age data-sort-item=\"age\">").concat(age, "</div>\n        <div class=\"user__tel\">").concat(phone, "</div>\n        <div class=\"user__important-star\">&#9734;</div>\n      \n        <div class=\"user__descr\">\n          <span data-lang=\"en\">").concat(phrase.en, "</span>\n          <span data-lang=\"ru\">").concat(phrase.ru, "</span>\n        <div>");
+    userListItem.innerHTML = "\n       <div class=\"users__info\">\n          <div class=\"users__avatar\">\n            <img src=\"../../assets/images/".concat(image, ".svg\" alt=\"").concat(image, "\" />\n          </div>\n          <div class=\"users__name name\" data-sort-item=\"name\">\n            <span data-lang=\"en\">").concat(name.en, "</span>\n            <span data-lang=\"ru\">").concat(name.ru, "</span>\n          </div>\n          <div class=\"users__age data-sort-item=\"age\">").concat(age, "</div>\n          <div class=\"users__tel\">").concat(phone, "</div>\n          <div class=\"users__important-star\">&#9734;</div>\n          <div class=\"users__descr\">\n          <span data-lang=\"en\">").concat(phrase.en, "</span>\n          <span data-lang=\"ru\">").concat(phrase.ru, "</span>\n          <div>\n        </div>");
 
     if (video) {
-      userListItem.classList.add("user_fullsize");
-      previewPlayer.classList.add("user__video");
-      previewPlayer.innerHTML = "\n        <video width=\"100%\" height=\"100%\" controls>\n          <source\n          src=\"../../assets/videos/".concat(video, ".mp4\"\n          type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'/>\n        </video>");
+      userListItem.classList.add("users_fullsize");
+      previewPlayer.classList.add("users__video");
+      previewPlayer.innerHTML = "\n        <video width=\"100%\" height=\"auto\" controls autoplay>\n          <source\n          src=\"../../assets/videos/".concat(video, ".mp4\"\n          type='video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\"'/>\n        </video>");
       previewPlayer.style.display = "block";
       userListItem.append(previewPlayer);
     }
