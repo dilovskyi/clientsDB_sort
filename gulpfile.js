@@ -96,7 +96,7 @@ function scriptsProd() {
 			webpack({
 				mode: "production",
 				output: {
-					filename: "script.js",
+					filename: "bundle.js",
 				},
 				module: {
 					rules: [

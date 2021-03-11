@@ -10,20 +10,18 @@ import filterInput from "./modules/controlPanel/filterInput";
 import preloader from "./modules/preloader";
 
 document.addEventListener("DOMContentLoaded", () => {
-  getData("../../assets/data.json")
+  getData("../assets/data.json")
     .then(data => {
       renderTable(data);
       renderPreview(data);
+      preloader();
       return data;
     })
     .then(data => {
       viewHandlers();
-      return data;
-    })
-    .then(data => {
       filterInput(data);
       sortingHandlers(data);
       showLanguageHandler(data);
-      preloader();
+      return data;
     });
 });
